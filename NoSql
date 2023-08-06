@@ -21,6 +21,11 @@ db.students.insertMany([
     }
 ]);
 
-
-//to list everything   
-db.students.find({},{_id : 0});
+  
+db.students.find({},{_id : 0}); //to list everything 
+db.students.find({},{_id : 0}).sort({Name:-1}); // 1 for ascending order -1 for descending 
+db.students.find({},{_id : 0}).sort({Name:-1, GPA:1}); it will first sort name in a descending order then in case of same names it will sort by GPA
+db.students.find({Name : "Zack"},{_id : 0}) // the first {} is to find a specific fiels
+db.students.find({$or : [{major: "Computer Science"} , {name:"Omar"}]},{_id : 0}) // major == CS or name == Omar 
+db.students.find({ GPA: {$gt : 2}} , {_id:0 }); //gpa > 2
+db.students.find({ Name: {$in:["Zack","James"] } }, {_id : 0});  //find in the list Zack or/and James
