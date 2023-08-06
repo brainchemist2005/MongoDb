@@ -1,0 +1,26 @@
+use My db
+db.students.insertOne({Name:"Sami",major:"Computer Science",GPA:4});
+db.students.insertOne({Name:"Zack",major:"Computer Science",GPA:3.5, awards:["Nobel Prize","Fields Prize"]});
+db.students.insertMany([
+    {
+        _id: 4, 
+        Name: "Omar",
+        major: "Finance",
+        GPA: 2.9,
+        degrees: {
+            AUI: "Bachelors",
+            Harvard: "Master"
+        }
+    },
+    {
+        _id: 5, // changed the _id because _id must be unique for every document
+        Name: "Meryeme",
+        major: "Marketing",
+        GPA: 4,
+        Countries: ["Tunisia", "UK", "Germany", "Thailand", "Brunei"]
+    }
+]);
+
+
+//to list everything   
+db.students.find({},{_id : 0});
